@@ -3,7 +3,6 @@
 A backend system for managing users, built with Go and following Clean Architecture principles. This project demonstrates separation of concerns, testability, and maintainability through layered architecture.
 
 ![Go Version](https://img.shields.io/badge/Go-1.21%2B-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ## Features
 - **CRUD Operations**: Create, read, and list users via REST API.
