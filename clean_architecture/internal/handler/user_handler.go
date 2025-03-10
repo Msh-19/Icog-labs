@@ -3,6 +3,7 @@ package handler
 import (
     "encoding/json"
     "net/http"
+    "github.com/gorilla/mux"
     "userManagement/internal/domain"
     "userManagement/internal/usecase"
 )
@@ -35,7 +36,10 @@ func (h *UserHandler) CreateUserHandler(w http.ResponseWriter, r *http.Request) 
 
 // Get User by ID Handler
 func (h *UserHandler) GetUserByIDHandler(w http.ResponseWriter, r *http.Request) {
-    id := r.URL.Query().Get("id")
+    // Extract ID from URL path using Gorilla Mux
+    vars := mux.Vars(r)
+    id := vars["id"]
+
     user, err := h.service.FindUserByID(id)
     if err != nil {
         http.Error(w, err.Error(), http.StatusNotFound)
@@ -45,6 +49,7 @@ func (h *UserHandler) GetUserByIDHandler(w http.ResponseWriter, r *http.Request)
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(user)
 }
+
 
 // Get All Users Handler
 func (h *UserHandler) GetAllUsersHandler(w http.ResponseWriter, r *http.Request) {
