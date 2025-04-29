@@ -1,0 +1,15 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+
+# VSCode and system files
+.vscode/
+.DS_Store
+
+# Logs or output
+*.log
+*.png
